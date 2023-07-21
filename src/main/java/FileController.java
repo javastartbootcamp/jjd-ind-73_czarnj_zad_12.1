@@ -3,17 +3,19 @@ import java.io.*;
 public class FileController {
     private static final String FILE_NOT_FOUND_MSG = "Couldn't find the file %s%n";
     private static final String FILE_NOT_READABLE_MSG = "There was a problem with file %s reading%n";
+
     public static void calculateFromFile(String fileNameToRead, String fileNameToSave) {
         String operations = readFile(fileNameToRead);
         String[] results = calculateResults(operations.split("\n"));
         showResults(results);
         saveResults(results, fileNameToSave);
     }
+    
     private static String readFile(String fileName) {
         try (var br = new BufferedReader(new FileReader(fileName))) {
             StringBuilder builder = new StringBuilder();
             String nextLine;
-            while((nextLine = br.readLine()) != null) {
+            while ((nextLine = br.readLine()) != null) {
                 builder.append(nextLine).append("\n");
             }
             return builder.toString();
