@@ -1,5 +1,5 @@
 class Main {
     public static void main(String[] args) {
-        // uzupełnij rozwiązanie
+        FileController.calculateFromFile("operations.txt", "results.txt");
     }
 }
